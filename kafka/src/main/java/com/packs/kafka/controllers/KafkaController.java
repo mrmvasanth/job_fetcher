@@ -1,6 +1,7 @@
 package com.packs.kafka.controllers;
 
 import com.packs.kafka.services.Producer;
+//import com.packs.kafka.services.ProducerThread;
 import com.packs.kafka.services.ProducerThread;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,13 +24,13 @@ public class KafkaController {
         return "published successfully";
     }
 
-    @PostMapping(value = "/startserver")
-    public String startServer(){
-        boolean isAsync = false;
-        ProducerThread producerThread = new ProducerThread(TOPIC, isAsync);
-        producerThread.start();
-        return "Server Started";
-    }
+//    @PostMapping(value = "/startserver")
+//    public String startServer(){
+//        boolean isAsync = false;
+//        ProducerThread producerThread = new ProducerThread(TOPIC, isAsync);
+//        producerThread.start();
+//        return "Server Started";
+//    }
 
 
 }

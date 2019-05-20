@@ -32,14 +32,11 @@ public class ProducerThread extends Thread {
             String messageStr = "Message_" + messageNo;
             long startTime = System.currentTimeMillis();
             if (isAsync) { // Send asynchronously
-                producer.send(new ProducerRecord (topic,
-                        messageNo,
-                        messageStr), new CallBackClass(startTime, messageNo, messageStr));
+                producer.send(new ProducerRecord (topic, messageNo,messageStr),
+                        new CallBackClass(startTime, messageNo, messageStr));
             } else { // Send synchronously
                 try {
-                    producer.send(new ProducerRecord(topic,
-                            messageNo,
-                            messageStr)).get();
+                    producer.send(new ProducerRecord(topic, messageNo,messageStr)).get();
                     System.out.println("Sent message: (" + messageNo + ", " + messageStr + ")");
                 } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();

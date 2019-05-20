@@ -11,6 +11,8 @@ public class Consumer {
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
     @KafkaListener(topics = "users", groupId = "group_id")
     public void consume(String message){
+        System.out.println("Consumed:"+message);
         logger.info(String.format("$$ -> Consumed Message -> %s",message));
+
     }
 }
