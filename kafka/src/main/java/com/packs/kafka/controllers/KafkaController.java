@@ -1,8 +1,6 @@
 package com.packs.kafka.controllers;
 
 import com.packs.kafka.services.Producer;
-//import com.packs.kafka.services.ProducerThread;
-import com.packs.kafka.services.ProducerThread;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +19,7 @@ public class KafkaController {
     @PostMapping(value = "/publish")
     public String sendMessageToKafkaTopic(@RequestParam("message") String message) {
         this.producer.sendMessage(message);
+        this.producer.insertIntoCassandra();
         return "published successfully";
     }
 
