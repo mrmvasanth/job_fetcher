@@ -1,8 +1,6 @@
-package com.packs.kafka.config;
+package com.packs.kafka.constants;
 
-import org.apache.tomcat.util.bcel.classfile.Constant;
-
-public final class Constants {
+public final class ConstantsUtil {
 
     public static final String TARGET_TOPIC="topic1";
 

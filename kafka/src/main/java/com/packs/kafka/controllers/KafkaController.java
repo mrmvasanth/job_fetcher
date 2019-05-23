@@ -1,34 +1,23 @@
 package com.packs.kafka.controllers;
 
-import com.packs.kafka.services.Producer;
+import com.packs.kafka.services.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/kafka")
 public class KafkaController {
-    private final Producer producer;
-
-    private static final String TOPIC = "topic1";
+    private final ProducerService producerService;
 
     @Autowired
-    public KafkaController(Producer producer) {
-        this.producer = producer;
+    public KafkaController(ProducerService producerService) {
+        this.producerService = producerService;
     }
-
-//    @PostMapping(value = "/publish")
-//    public String sendMessageToKafkaTopic(@RequestParam("message") String message) {
-//        this.producer.sendMessage(message);
-//        this.producer.insertIntoCassandra(message);
-//        return "published successfully";
-//    }
 
     @GetMapping(value = "/start")
     public String sendMessageToKafkaTopic() throws Exception {
-        this.producer.startReadingThread();
+        this.producerService.startReadingThread();
         return "started";
     }
-
-
-
 }
+

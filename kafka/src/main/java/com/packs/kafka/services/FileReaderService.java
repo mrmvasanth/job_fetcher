@@ -1,19 +1,17 @@
 package com.packs.kafka.services;
 
 import org.springframework.stereotype.Service;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.packs.kafka.config.Constants.*;
-
+import static com.packs.kafka.constants.ConstantsUtil.*;
 
 @Service
 public class FileReaderService {
-    Pattern pattern = Pattern.compile(URL_PATTERN, Pattern.CASE_INSENSITIVE);
+    private Pattern pattern = Pattern.compile(URL_PATTERN, Pattern.CASE_INSENSITIVE);
 
     public int getJobsCount(){
         BufferedReader reader;
