@@ -1,0 +1,36 @@
+
+[2019-04-19 12:26:18] local.INFO: Method:GET URL: http://localhost/v2/public/api/core/areacodes
+[2019-04-19 12:26:35] local.INFO: Method:GET URL: http://localhost/v2/public/api/role/privileges/2
+
+[2019-04-19 12:26:57] local.INFO: Method:GET URL: http://localhost/v2/public/api/user
+
+[2019-04-19 12:27:50] local.INFO: Method:GET URL: http://localhost/v2/public/api/jobs
+[2019-04-19 12:27:57] local.INFO: Method:GET URL: http://localhost/v2/public/api/jobs
+
+[2019-04-19 12:28:27] local.INFO: Method:GET URL: http://localhost/v2/public/api/job/405ece90-2bce-3465-8abc-2af3feb3a857
+
+[2019-04-19 12:28:46] local.INFO: Method:POST URL: http://localhost/v2/public/api/job
+[2019-04-19 12:29:00] local.INFO: Method:POST URL: http://localhost/v2/public/api/job
+
+[2019-04-19 12:29:04] local.INFO: Method:POST URL: http://localhost/v2/public/api/job
+
+[2019-04-19 12:29:14] local.INFO: Method:GET URL: http://localhost/v2/public/api/job/options
+[2019-04-19 12:29:22] local.INFO: Method:GET URL: http://localhost/v2/public/api/jobs
+
+[2019-04-19 12:29:38] local.INFO: Method:GET URL: http://localhost/v2/public/api/job/5ce5ec3f-8baa-419b-9ea0-fafe51bc162e
+
+[2019-04-19 12:30:01] local.INFO: Method:GET URL: http://localhost/v2/public/api/job/af8c7e9e-2c2a-47d1-868c-7a9636cd4252
+
+[2019-04-19 12:30:19] local.INFO: Method:GET URL: http://localhost/v2/public/api/job/9ed6637d-6c41-4f22-ab2d-3b6797197fa8
+
+[2019-04-19 12:31:09] local.INFO: Method:PUT URL: http://localhost/v2/public/api/job/status/9ed6637d-6c41-4f22-ab2d-3b6797197fa8
+
+[2019-04-19 12:31:16] local.INFO: Method:GET URL: http://localhost/v2/public/api/job/counts
+[2019-04-19 12:31:24] local.INFO: Method:GET URL: http://localhost/v2/public/api/dashboard/counts
+[2019-04-19 12:31:37] local.INFO: Method:GET URL: http://localhost/v2/public/api/applicants
+
+[2019-04-19 12:31:49] local.INFO: Method:GET URL: http://localhost/v2/public/api/calendar/interviews
+
+[2019-04-19 12:32:01] local.INFO: Method:GET URL: http://localhost/v2/public/api/calendar/interviews/count
+
+[2019-04-19 12:32:16] local.INFO: Method:GET URL: http://localhost/v2/public/api/settings

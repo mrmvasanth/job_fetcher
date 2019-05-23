@@ -1,48 +1,52 @@
 package com.packs.kafka.model;
 
+import com.datastax.driver.core.utils.UUIDs;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+import java.sql.Timestamp;
+import java.util.UUID;
 
-@Table("jobposts")
+
+@Table("job_post_details")
 public class JobDetails {
 
     @PrimaryKey
-    private Long id;
+    private UUID id;
 
-    private String joblink;
+    private Timestamp timestamp;
 
-    private String jobposition;
+    private int jobsCount;
 
     public JobDetails(){}
 
-    public JobDetails(Long id, String joblink, String jobposition) {
+    public JobDetails(UUID id, Timestamp timestamp, int jobsCount) {
         this.id = id;
-        this.joblink = joblink;
-        this.jobposition = jobposition;
+        this.timestamp = timestamp;
+        this.jobsCount = jobsCount;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public String getJoblink() {
-        return joblink;
+    public Timestamp getTimestamp() {
+        return timestamp;
     }
 
-    public void setJoblink(String joblink) {
-        this.joblink = joblink;
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public String getJobposition() {
-        return jobposition;
+    public int getJobsCount() {
+        return jobsCount;
     }
 
-    public void setJobposition(String jobposition) {
-        this.jobposition = jobposition;
+    public void setJobsCount(int jobsCount) {
+        this.jobsCount = jobsCount;
     }
 }

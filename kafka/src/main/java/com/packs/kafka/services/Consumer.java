@@ -1,18 +1,50 @@
 package com.packs.kafka.services;
 
 
+import com.packs.kafka.model.JobDetails;
+import com.packs.kafka.repository.CassandraRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.sql.Timestamp;
+import java.util.UUID;
+
 @Service
 public class Consumer {
+
+    @Autowired
+    CassandraRepo cassandraRepo;
+
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
-    @KafkaListener(topics = "users", groupId = "group_id")
-    public void consume(String message){
-        System.out.println("Consumed:"+message);
-        logger.info(String.format("$$ -> Consumed Message -> %s",message));
+    @KafkaListener(topics = "topic1", groupId = "group_id")
+
+    public void consume(String jobsCount){
+        System.out.println("Consumed:"+jobsCount);
+        insertIntoCassandra(Integer.parseInt(jobsCount));
+        logger.info(String.format("$$ -> Consumed Message -> %s",jobsCount));
+
+    }
+
+    public void insertIntoCassandra(int jobsCount) {
+//        clearData ();
+        saveData(jobsCount);
+    }
+
+    public void clearData(){
+        cassandraRepo.deleteAll();
+    }
+
+    public void saveData(int jobsCount){
+        Date date= new Date();
+        long time = date.getTime();
+        Timestamp timestamp=new Timestamp(time);
+        JobDetails job1=new JobDetails(UUID.randomUUID(),timestamp,jobsCount);
+
+        cassandraRepo.save(job1);
 
     }
 }

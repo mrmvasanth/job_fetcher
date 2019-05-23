@@ -6,15 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="find_work" />
         <module name="kafka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
+      <module name="kafka-readfile-producer" target="1.5" />
       <module name="springboot-cassandra-spring-data" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="find_work" options="-parameters" />
       <module name="kafka" options="-parameters" />
     </option>
   </component>

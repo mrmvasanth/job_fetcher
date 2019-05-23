@@ -1,7 +1,7 @@
 package com.packs.kafka;
 
 
-import com.packs.kafka.model.JobDetails;
+
 import com.packs.kafka.repository.CassandraRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 

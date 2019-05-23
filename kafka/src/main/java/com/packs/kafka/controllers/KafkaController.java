@@ -16,20 +16,19 @@ public class KafkaController {
         this.producer = producer;
     }
 
-    @PostMapping(value = "/publish")
-    public String sendMessageToKafkaTopic(@RequestParam("message") String message) {
-        this.producer.sendMessage(message);
-        this.producer.insertIntoCassandra();
-        return "published successfully";
+//    @PostMapping(value = "/publish")
+//    public String sendMessageToKafkaTopic(@RequestParam("message") String message) {
+//        this.producer.sendMessage(message);
+//        this.producer.insertIntoCassandra(message);
+//        return "published successfully";
+//    }
+
+    @GetMapping(value = "/start")
+    public String sendMessageToKafkaTopic() throws Exception {
+        this.producer.startReadingThread();
+        return "started";
     }
 
-//    @PostMapping(value = "/startserver")
-//    public String startServer(){
-//        boolean isAsync = false;
-//        ProducerThread producerThread = new ProducerThread(TOPIC, isAsync);
-//        producerThread.start();
-//        return "Server Started";
-//    }
 
 
 }
