@@ -1,6 +1,4 @@
 package com.packs.kafka.services;
-
-
 import com.packs.kafka.model.JobDetails;
 import com.packs.kafka.repository.CassandraRepo;
 import org.slf4j.Logger;
@@ -8,10 +6,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-
 import java.util.Date;
 import java.sql.Timestamp;
 import java.util.UUID;
+
+import static com.packs.kafka.config.Constants.LISTEN_GROUP_ID;
+import static com.packs.kafka.config.Constants.LISTEN_TOPIC;
 
 @Service
 public class Consumer {
@@ -20,7 +20,7 @@ public class Consumer {
     CassandraRepo cassandraRepo;
 
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
-    @KafkaListener(topics = "topic1", groupId = "group_id")
+    @KafkaListener(topics = LISTEN_TOPIC, groupId = LISTEN_GROUP_ID)
 
     public void consume(String jobsCount){
         System.out.println("Consumed:"+jobsCount);
@@ -42,9 +42,9 @@ public class Consumer {
         Date date= new Date();
         long time = date.getTime();
         Timestamp timestamp=new Timestamp(time);
-        JobDetails job1=new JobDetails(UUID.randomUUID(),timestamp,jobsCount);
+        JobDetails job=new JobDetails(UUID.randomUUID(),timestamp,jobsCount);
 
-        cassandraRepo.save(job1);
+        cassandraRepo.save(job);
 
     }
 }
