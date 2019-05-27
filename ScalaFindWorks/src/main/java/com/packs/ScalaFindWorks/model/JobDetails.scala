@@ -9,13 +9,13 @@ import scala.beans.BeanProperty
 class JobDetails {
   @PrimaryKey
   @BeanProperty
-  var id: UUID =
+  var id: UUID = _
 
   @BeanProperty
-  var timestamp: Timestamp
+  var timestamp: Timestamp = _
 
   @BeanProperty
-  var jobsCount: Int =
+  var jobsCount: Int = _
 
   def this(id: UUID, timestamp: Timestamp, jobsCount: Int) = {
     this()
